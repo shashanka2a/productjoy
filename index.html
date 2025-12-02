@@ -82,14 +82,10 @@
         .accordion-icon { transition: transform 0.3s ease; }
         .accordion-open .accordion-icon { transform: rotate(45deg); }
         
-        /* Cursor Blink for Typing (Optional aesthetic) */
-        .cursor-blink::after {
-            content: '|';
-            animation: blink 1s infinite;
-            color: #00D66B;
-            margin-left: 5px;
+        /* Horizontal Scroll Specifics */
+        .work-track {
+            will-change: transform;
         }
-        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
     </style>
 </head>
 <body class="flex justify-center items-start min-h-screen py-0 lg:py-8 bg-black">
@@ -103,12 +99,11 @@
                 PRODUCT<span class="text-neon">JOY</span>
             </a>
 
-            <!-- Significantly increased gaps and padding -->
             <div class="hidden md:flex items-center gap-8 lg:gap-16 text-[13px] font-semibold tracking-[0.15em] uppercase text-gray-300">
                 <a href="#services" class="px-4 py-2 hover:text-neon hover:text-white transition-colors nav-link">Services</a>
-                <a href="#plans" class="px-4 py-2 hover:text-neon hover:text-white transition-colors nav-link">Plans</a>
-                <a href="#process" class="px-4 py-2 hover:text-neon hover:text-white transition-colors nav-link">Process</a>
                 <a href="#work" class="px-4 py-2 hover:text-neon hover:text-white transition-colors nav-link">Work</a>
+                <a href="#process" class="px-4 py-2 hover:text-neon hover:text-white transition-colors nav-link">Process</a>
+                <a href="#plans" class="px-4 py-2 hover:text-neon hover:text-white transition-colors nav-link">Plans</a>
                 <a href="#faq" class="px-4 py-2 hover:text-neon hover:text-white transition-colors nav-link">FAQ</a>
             </div>
 
@@ -122,23 +117,17 @@
 
         <!-- Hero Section -->
         <header class="relative w-full min-h-screen flex flex-col justify-center px-6 md:px-12 lg:px-16 pt-32 pb-20 overflow-hidden">
-            <!-- Background Elements -->
             <div class="absolute top-0 left-0 w-full h-[80vh] bg-gradient-to-b from-neon/5 to-transparent pointer-events-none"></div>
 
-            <!-- Grid Container for Structural Alignment -->
             <div class="relative z-20 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
-                
-                <!-- Headline (Spans 8 cols) -->
                 <div class="lg:col-span-8">
                     <h1 class="text-[clamp(4rem,11vw,10.5rem)] font-black leading-[0.85] tracking-tighter uppercase text-white">
                         <div class="overflow-hidden"><span class="block type-text">Ship Real</span></div>
                         <div class="overflow-hidden"><span class="block type-text">Products,</span></div>
-                        <!-- Added drop shadow to Neon text for better legibility/pop against dark bg -->
                         <div class="overflow-hidden"><span class="block type-text text-neon drop-shadow-[0_0_15px_rgba(0,214,107,0.3)]">Insanely Fast</span></div>
                     </h1>
                 </div>
 
-                <!-- Subhead & Stats (Spans 4 cols, aligned bottom) -->
                 <div class="lg:col-span-4 flex flex-col items-start lg:items-end opacity-0 fade-in-up pb-2">
                     <div class="w-full max-w-[420px] lg:text-right">
                         <p class="text-gray-300 text-lg md:text-xl mb-10 leading-relaxed font-light">
@@ -154,7 +143,6 @@
                             </button>
                         </div>
                         
-                        <!-- Stats aligned to grid -->
                         <div class="flex justify-start lg:justify-end gap-12 border-t border-white/10 pt-8">
                             <div>
                                 <span class="block text-3xl font-black text-white">10+</span>
@@ -181,7 +169,7 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Service 1 -->
+                <!-- Services Cards -->
                 <div class="h-[360px] border border-white/5 rounded-2xl p-8 flex flex-col justify-between hover:border-neon/50 transition-colors duration-500 bg-panel glow-hover service-card opacity-0 translate-y-10 group">
                     <div class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-neon text-xl group-hover:scale-110 transition-transform duration-500">
                         <i class="fa-solid fa-pen-nib"></i>
@@ -191,8 +179,6 @@
                         <p class="text-gray-500 text-sm leading-relaxed">Build timeless brands and delightful product interfaces that convert users into fans.</p>
                     </div>
                 </div>
-
-                <!-- Service 2 -->
                 <div class="h-[360px] border border-white/5 rounded-2xl p-8 flex flex-col justify-between hover:border-neon/50 transition-colors duration-500 bg-panel glow-hover service-card opacity-0 translate-y-10 group">
                     <div class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-neon text-xl group-hover:scale-110 transition-transform duration-500">
                         <i class="fa-solid fa-code"></i>
@@ -202,8 +188,6 @@
                         <p class="text-gray-500 text-sm leading-relaxed">From web apps to mobile, our code is clean, scalable, and lightning-fast.</p>
                     </div>
                 </div>
-
-                <!-- Service 3 -->
                 <div class="h-[360px] border border-white/5 rounded-2xl p-8 flex flex-col justify-between hover:border-neon/50 transition-colors duration-500 bg-panel glow-hover service-card opacity-0 translate-y-10 group">
                     <div class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-neon text-xl group-hover:scale-110 transition-transform duration-500">
                         <i class="fa-solid fa-rocket"></i>
@@ -213,8 +197,6 @@
                         <p class="text-gray-500 text-sm leading-relaxed">Scale with content, ads, and community — all tailored to your audience.</p>
                     </div>
                 </div>
-
-                <!-- Service 4 -->
                 <div class="h-[360px] border border-white/5 rounded-2xl p-8 flex flex-col justify-between hover:border-neon/50 transition-colors duration-500 bg-panel glow-hover service-card opacity-0 translate-y-10 group">
                     <div class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-neon text-xl group-hover:scale-110 transition-transform duration-500">
                         <i class="fa-solid fa-chart-line"></i>
@@ -227,34 +209,142 @@
             </div>
         </section>
 
+        <!-- Selected Work Section (HORIZONTAL SCROLL) -->
+        <!-- No padding on wrapper to allow full bleed -->
+        <section id="work" class="bg-black relative overflow-hidden h-screen flex flex-col justify-center">
+            
+            <!-- Horizontal Track -->
+            <!-- FIXED: Increased gap from md:gap-24 to md:gap-40 to prevent text overlap -->
+            <div id="work-track" class="flex flex-nowrap items-center h-full pl-6 md:pl-20 w-fit gap-16 md:gap-40">
+                
+                <!-- Title Slide (Sticky/Intro) -->
+                <!-- FIXED: Increased width from md:w-[30vw] to md:w-[40vw] to give text more room -->
+                <div class="w-[80vw] md:w-[40vw] shrink-0 pr-10 flex flex-col justify-center h-full">
+                    <div class="mb-8">
+                        <h2 class="text-6xl md:text-7xl lg:text-9xl font-bold uppercase tracking-tighter leading-[0.9] mb-6">
+                            Selected <br><span class="text-gray-800">Work</span>
+                        </h2>
+                        <div class="text-neon text-sm font-mono tracking-widest mb-8">[ 02 ]</div>
+                        <p class="text-gray-400 text-lg max-w-md leading-relaxed">
+                            Swipe to explore how we've helped founders turn napkin sketches into market-leading products.
+                        </p>
+                    </div>
+                    <div class="hidden md:flex items-center gap-4 text-white/30 text-sm uppercase tracking-widest animate-pulse">
+                        Scroll <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                </div>
+
+                <!-- Case Study 1 -->
+                <div class="w-[85vw] md:w-[60vw] lg:w-[50vw] h-[60vh] md:h-[70vh] shrink-0 relative group rounded-[2rem] overflow-hidden border border-white/10 work-item">
+                    <div class="absolute inset-0 bg-darker z-10 opacity-40 group-hover:opacity-10 transition-opacity duration-500"></div>
+                    <!-- Parallax Image Container -->
+                    <div class="w-[120%] h-full absolute top-0 left-0 work-img-container">
+                        <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=2400&auto=format&fit=crop" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" alt="Adverzeo">
+                    </div>
+                    <!-- Content Overlay -->
+                    <div class="absolute bottom-0 left-0 w-full p-8 md:p-12 z-20 bg-gradient-to-t from-black via-black/50 to-transparent">
+                        <div class="flex justify-between items-end">
+                            <div>
+                                <div class="flex gap-3 mb-4">
+                                    <span class="px-3 py-1 bg-white/10 backdrop-blur-md rounded-full text-xs uppercase tracking-widest text-white border border-white/10">Brand</span>
+                                    <span class="px-3 py-1 bg-white/10 backdrop-blur-md rounded-full text-xs uppercase tracking-widest text-white border border-white/10">UI/UX</span>
+                                </div>
+                                <h3 class="text-4xl md:text-6xl font-bold mb-2 group-hover:text-neon transition-colors">Adverzeo</h3>
+                                <p class="text-gray-300 max-w-md hidden md:block text-lg">The Art Of Loading Excellence • premium marketing platform design.</p>
+                            </div>
+                            <button class="w-16 h-16 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center group-hover:bg-neon group-hover:text-black transition-all border border-white/10">
+                                <i class="fa-solid fa-arrow-right -rotate-45 text-xl"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case Study 2 -->
+                <div class="w-[85vw] md:w-[60vw] lg:w-[50vw] h-[60vh] md:h-[70vh] shrink-0 relative group rounded-[2rem] overflow-hidden border border-white/10 work-item">
+                    <div class="absolute inset-0 bg-darker z-10 opacity-40 group-hover:opacity-10 transition-opacity duration-500"></div>
+                     <div class="w-[120%] h-full absolute top-0 left-0 work-img-container">
+                        <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=2400&auto=format&fit=crop" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" alt="Payflow">
+                    </div>
+                    <div class="absolute bottom-0 left-0 w-full p-8 md:p-12 z-20 bg-gradient-to-t from-black via-black/50 to-transparent">
+                        <div class="flex justify-between items-end">
+                             <div>
+                                <div class="flex gap-3 mb-4">
+                                    <span class="px-3 py-1 bg-white/10 backdrop-blur-md rounded-full text-xs uppercase tracking-widest text-white border border-white/10">Fintech</span>
+                                    <span class="px-3 py-1 bg-white/10 backdrop-blur-md rounded-full text-xs uppercase tracking-widest text-white border border-white/10">App</span>
+                                </div>
+                                <h3 class="text-4xl md:text-6xl font-bold mb-2 group-hover:text-neon transition-colors">Payflow</h3>
+                                <p class="text-gray-300 max-w-md hidden md:block text-lg">Seamless global finance with zero hidden fees.</p>
+                            </div>
+                            <button class="w-16 h-16 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center group-hover:bg-neon group-hover:text-black transition-all border border-white/10">
+                                <i class="fa-solid fa-arrow-right -rotate-45 text-xl"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case Study 3 -->
+                <div class="w-[85vw] md:w-[60vw] lg:w-[50vw] h-[60vh] md:h-[70vh] shrink-0 relative group rounded-[2rem] overflow-hidden border border-white/10 work-item">
+                    <div class="absolute inset-0 bg-darker z-10 opacity-40 group-hover:opacity-10 transition-opacity duration-500"></div>
+                     <div class="w-[120%] h-full absolute top-0 left-0 work-img-container">
+                        <img src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?q=80&w=2400&auto=format&fit=crop" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" alt="InOrbyt">
+                    </div>
+                    <div class="absolute bottom-0 left-0 w-full p-8 md:p-12 z-20 bg-gradient-to-t from-black via-black/50 to-transparent">
+                        <div class="flex justify-between items-end">
+                             <div>
+                                <div class="flex gap-3 mb-4">
+                                    <span class="px-3 py-1 bg-white/10 backdrop-blur-md rounded-full text-xs uppercase tracking-widest text-white border border-white/10">Web3</span>
+                                    <span class="px-3 py-1 bg-white/10 backdrop-blur-md rounded-full text-xs uppercase tracking-widest text-white border border-white/10">Platform</span>
+                                </div>
+                                <h3 class="text-4xl md:text-6xl font-bold mb-2 group-hover:text-neon transition-colors">InOrbyt</h3>
+                                <p class="text-gray-300 max-w-md hidden md:block text-lg">Reward your community. No crypto. No complexity.</p>
+                            </div>
+                            <button class="w-16 h-16 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center group-hover:bg-neon group-hover:text-black transition-all border border-white/10">
+                                <i class="fa-solid fa-arrow-right -rotate-45 text-xl"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- "See All" End Card -->
+                <div class="w-[40vw] md:w-[30vw] shrink-0 flex items-center justify-center h-[60vh] md:h-[70vh] border-l border-white/10 pl-10">
+                    <a href="#" class="group text-center">
+                        <div class="w-24 h-24 rounded-full border border-white/20 flex items-center justify-center mx-auto mb-6 group-hover:bg-neon group-hover:text-black group-hover:scale-110 transition-all duration-300">
+                             <i class="fa-solid fa-arrow-right -rotate-45 text-2xl"></i>
+                        </div>
+                        <span class="text-2xl font-bold uppercase tracking-tight group-hover:text-neon transition-colors">View All<br>Projects</span>
+                    </a>
+                </div>
+                
+                <!-- Padding Spacer for end -->
+                <div class="w-[10vw] shrink-0"></div>
+
+            </div>
+        </section>
+
         <!-- Process Section -->
-        <section id="process" class="px-6 md:px-16 py-32 bg-black">
+        <section id="process" class="px-6 md:px-16 py-32 bg-darker">
             <div class="flex items-end justify-between mb-24 section-header">
                 <div>
                     <h2 class="text-5xl md:text-7xl font-bold uppercase tracking-tighter mb-4">How We <span class="text-gray-700">Work</span></h2>
                     <p class="text-gray-400 text-lg">Brief &rarr; Build &rarr; Boost</p>
                 </div>
-                <div class="hidden md:block text-neon text-sm font-mono tracking-widest">[ 02 ]</div>
+                <div class="hidden md:block text-neon text-sm font-mono tracking-widest">[ 03 ]</div>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Step 1 -->
+                <!-- Steps (Same as before) -->
                 <div class="border-t border-white/10 pt-8 process-step opacity-0 translate-y-10">
                     <span class="text-neon font-black text-6xl block mb-6">01</span>
                     <h3 class="text-3xl font-bold text-white mb-2">Brief</h3>
                     <div class="inline-block px-3 py-1 border border-white/20 rounded-full text-xs font-bold uppercase text-gray-400 mb-6">1 Day</div>
                     <p class="text-gray-500 text-lg leading-relaxed">Align on goals, audience, and brand direction to kickstart your vision.</p>
                 </div>
-
-                <!-- Step 2 -->
                 <div class="border-t border-white/10 pt-8 process-step opacity-0 translate-y-10">
                     <span class="text-neon font-black text-6xl block mb-6">02</span>
                     <h3 class="text-3xl font-bold text-white mb-2">Build</h3>
                     <div class="inline-block px-3 py-1 border border-white/20 rounded-full text-xs font-bold uppercase text-gray-400 mb-6">1-2 Weeks</div>
                     <p class="text-gray-500 text-lg leading-relaxed">Design, develop, and launch your product or campaign with startup speed.</p>
                 </div>
-
-                <!-- Step 3 -->
                 <div class="border-t border-white/10 pt-8 process-step opacity-0 translate-y-10">
                     <span class="text-neon font-black text-6xl block mb-6">03</span>
                     <h3 class="text-3xl font-bold text-white mb-2">Boost</h3>
@@ -264,73 +354,9 @@
             </div>
         </section>
 
-        <!-- Selected Work Section -->
-        <section id="work" class="px-6 md:px-16 py-32 bg-dark">
-            <div class="flex items-end justify-between mb-24 section-header">
-                <h2 class="text-5xl md:text-7xl font-bold uppercase tracking-tighter">Selected <span class="text-gray-700">Work</span></h2>
-                <div class="hidden md:block text-neon text-sm font-mono tracking-widest">[ 03 ]</div>
-            </div>
-
-            <div class="flex flex-col gap-32">
-                <!-- Case Study 1 -->
-                <div class="group relative w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center cursor-pointer case-card opacity-0 translate-y-20">
-                    <div class="lg:col-span-8 h-[400px] lg:h-[600px] overflow-hidden rounded-[2rem] relative">
-                        <div class="w-full h-[120%] -mt-[10%] parallax-img-wrapper">
-                            <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=2400&auto=format&fit=crop" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 ease-out" alt="Adverzeo">
-                        </div>
-                    </div>
-                    <div class="lg:col-span-4 flex flex-col justify-center items-start lg:pl-8">
-                        <div class="flex flex-wrap gap-3 mb-8">
-                            <span class="px-4 py-1.5 border border-white/10 rounded-full text-[11px] uppercase tracking-widest text-gray-400">Brand Identity</span>
-                            <span class="px-4 py-1.5 border border-white/10 rounded-full text-[11px] uppercase tracking-widest text-gray-400">UI/UX</span>
-                        </div>
-                        <h3 class="text-5xl font-bold mb-6 group-hover:text-neon transition-colors leading-tight">Adverzeo</h3>
-                        <p class="text-gray-400 leading-relaxed mb-8">The Art Of Loading Excellence • premium marketing platform design.</p>
-                        <div class="text-sm text-neon font-bold uppercase tracking-widest mb-2">Timeline: 2 Weeks</div>
-                    </div>
-                </div>
-
-                <!-- Case Study 2 -->
-                <div class="group relative w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center cursor-pointer case-card opacity-0 translate-y-20">
-                     <div class="lg:col-span-4 flex flex-col justify-center items-start lg:items-end lg:text-right lg:pr-8 order-2 lg:order-1">
-                        <div class="flex flex-wrap gap-3 mb-8 lg:justify-end">
-                            <span class="px-4 py-1.5 border border-white/10 rounded-full text-[11px] uppercase tracking-widest text-gray-400">Fintech</span>
-                            <span class="px-4 py-1.5 border border-white/10 rounded-full text-[11px] uppercase tracking-widest text-gray-400">Web App</span>
-                        </div>
-                        <h3 class="text-5xl font-bold mb-6 group-hover:text-neon transition-colors leading-tight">Payflow</h3>
-                        <p class="text-gray-400 leading-relaxed mb-8">Seamless global finance with zero hidden fees and instant settlements.</p>
-                        <div class="text-sm text-neon font-bold uppercase tracking-widest mb-2">Timeline: 1 Month</div>
-                    </div>
-                    <div class="lg:col-span-8 h-[400px] lg:h-[600px] overflow-hidden rounded-[2rem] relative order-1 lg:order-2">
-                         <div class="w-full h-[120%] -mt-[10%] parallax-img-wrapper">
-                            <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=2400&auto=format&fit=crop" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 ease-out" alt="Payflow">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Case Study 3 -->
-                <div class="group relative w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center cursor-pointer case-card opacity-0 translate-y-20">
-                    <div class="lg:col-span-8 h-[400px] lg:h-[600px] overflow-hidden rounded-[2rem] relative">
-                         <div class="w-full h-[120%] -mt-[10%] parallax-img-wrapper">
-                            <img src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?q=80&w=2400&auto=format&fit=crop" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 ease-out" alt="InOrbyt">
-                        </div>
-                    </div>
-                    <div class="lg:col-span-4 flex flex-col justify-center items-start lg:pl-8">
-                        <div class="flex flex-wrap gap-3 mb-8">
-                            <span class="px-4 py-1.5 border border-white/10 rounded-full text-[11px] uppercase tracking-widest text-gray-400">Web3</span>
-                            <span class="px-4 py-1.5 border border-white/10 rounded-full text-[11px] uppercase tracking-widest text-gray-400">Platform</span>
-                        </div>
-                        <h3 class="text-5xl font-bold mb-6 group-hover:text-neon transition-colors leading-tight">InOrbyt</h3>
-                        <p class="text-gray-400 leading-relaxed mb-8">Reward your community. No crypto. No complexity. Just connection.</p>
-                        <div class="text-sm text-neon font-bold uppercase tracking-widest mb-2">Timeline: 3 Weeks</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <!-- Plans Section -->
         <section id="plans" class="px-6 md:px-16 py-32 bg-black border-t border-white/5">
-            <div class="flex items-end justify-between mb-24 section-header">
+             <div class="flex items-end justify-between mb-24 section-header">
                 <div>
                     <h2 class="text-5xl md:text-7xl font-bold uppercase tracking-tighter mb-4">Choose Your <span class="text-gray-700">Sprint</span></h2>
                     <p class="text-gray-400 text-lg">Built for founders at every stage.</p>
@@ -339,8 +365,7 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Design Sprint -->
-                <div class="p-8 border border-white/10 rounded-2xl bg-panel hover:border-neon/30 transition-all">
+                 <div class="p-8 border border-white/10 rounded-2xl bg-panel hover:border-neon/30 transition-all">
                     <h3 class="text-2xl font-bold text-white mb-2">Design Sprint</h3>
                     <p class="text-gray-500 text-sm mb-6">Visual identity, landing page, and UI system</p>
                     <div class="text-4xl font-bold text-white mb-8">$3,500</div>
@@ -348,12 +373,10 @@
                         <li class="flex items-center gap-3"><i class="fa-solid fa-check text-neon"></i> Visual identity</li>
                         <li class="flex items-center gap-3"><i class="fa-solid fa-check text-neon"></i> Landing page</li>
                         <li class="flex items-center gap-3"><i class="fa-solid fa-check text-neon"></i> UI system</li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-neon"></i> Brand guidelines</li>
                     </ul>
                     <a href="#" class="block w-full py-4 rounded-xl border border-white/20 text-center font-bold text-white hover:bg-white hover:text-black transition-colors">Get Started</a>
                 </div>
 
-                <!-- Launch Sprint -->
                 <div class="p-8 border border-neon rounded-2xl bg-dark relative transform md:-translate-y-4 shadow-[0_0_30px_rgba(0,214,107,0.1)]">
                     <div class="absolute top-0 right-0 bg-neon text-black text-xs font-bold px-4 py-1.5 rounded-bl-xl uppercase">Most Popular</div>
                     <h3 class="text-2xl font-bold text-white mb-2">Launch Sprint</h3>
@@ -362,14 +385,11 @@
                     <ul class="space-y-4 mb-10 text-white text-sm">
                         <li class="flex items-center gap-3"><i class="fa-solid fa-check text-neon"></i> Full-stack product launch</li>
                         <li class="flex items-center gap-3"><i class="fa-solid fa-check text-neon"></i> Design + dev + marketing</li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-neon"></i> UI/UX design</li>
                         <li class="flex items-center gap-3"><i class="fa-solid fa-check text-neon"></i> Backend development</li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-neon"></i> 7-day delivery</li>
                     </ul>
                     <a href="#" class="block w-full py-4 rounded-xl bg-neon text-center font-bold text-black hover:bg-white transition-colors">Get Started</a>
                 </div>
 
-                <!-- Scale Sprint -->
                 <div class="p-8 border border-white/10 rounded-2xl bg-panel hover:border-neon/30 transition-all">
                     <h3 class="text-2xl font-bold text-white mb-2">Scale Sprint</h3>
                     <p class="text-gray-500 text-sm mb-6">Advanced features & growth campaigns</p>
@@ -377,7 +397,6 @@
                     <ul class="space-y-4 mb-10 text-gray-400 text-sm">
                         <li class="flex items-center gap-3"><i class="fa-solid fa-check text-neon"></i> Advanced features</li>
                         <li class="flex items-center gap-3"><i class="fa-solid fa-check text-neon"></i> Growth campaigns</li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-neon"></i> Post-launch support</li>
                         <li class="flex items-center gap-3"><i class="fa-solid fa-check text-neon"></i> Custom integrations</li>
                     </ul>
                     <a href="#" class="block w-full py-4 rounded-xl border border-white/20 text-center font-bold text-white hover:bg-white hover:text-black transition-colors">Get Started</a>
@@ -389,7 +408,6 @@
         <section id="faq" class="px-6 md:px-16 py-32 bg-darker">
             <h2 class="text-4xl md:text-5xl font-bold uppercase tracking-tighter mb-16 text-center">FAQ</h2>
             <div class="max-w-3xl mx-auto space-y-4">
-                <!-- Q1 -->
                 <div class="border-b border-white/10 pb-4 accordion-item">
                     <button class="w-full flex justify-between items-center py-4 text-left font-bold text-lg text-white hover:text-neon transition-colors" onclick="toggleAccordion(this)">
                         What services does ProductJoy offer?
@@ -399,7 +417,6 @@
                         <p class="text-gray-400 pb-4">We offer end-to-end product services including Branding, UI/UX Design, Full-Stack Development (Web & Mobile), and Growth Marketing strategies.</p>
                     </div>
                 </div>
-                <!-- Q2 -->
                 <div class="border-b border-white/10 pb-4 accordion-item">
                     <button class="w-full flex justify-between items-center py-4 text-left font-bold text-lg text-white hover:text-neon transition-colors" onclick="toggleAccordion(this)">
                         What if I need revisions?
@@ -407,36 +424,6 @@
                     </button>
                     <div class="accordion-content">
                         <p class="text-gray-400 pb-4">We work in iterative sprints. Each sprint includes rounds of feedback to ensure the final output matches your vision perfectly.</p>
-                    </div>
-                </div>
-                <!-- Q3 -->
-                <div class="border-b border-white/10 pb-4 accordion-item">
-                    <button class="w-full flex justify-between items-center py-4 text-left font-bold text-lg text-white hover:text-neon transition-colors" onclick="toggleAccordion(this)">
-                        Do you provide ongoing support?
-                        <i class="fa-solid fa-plus text-neon accordion-icon"></i>
-                    </button>
-                    <div class="accordion-content">
-                        <p class="text-gray-400 pb-4">Yes! Our "Boost" phase is dedicated to ongoing maintenance, optimization, and scaling support after the initial launch.</p>
-                    </div>
-                </div>
-                <!-- Q4 -->
-                <div class="border-b border-white/10 pb-4 accordion-item">
-                    <button class="w-full flex justify-between items-center py-4 text-left font-bold text-lg text-white hover:text-neon transition-colors" onclick="toggleAccordion(this)">
-                        What technologies do you use?
-                        <i class="fa-solid fa-plus text-neon accordion-icon"></i>
-                    </button>
-                    <div class="accordion-content">
-                        <p class="text-gray-400 pb-4">We use modern stacks like React, Next.js, Node.js, Tailwind CSS for web, and React Native for mobile. Design is done in Figma.</p>
-                    </div>
-                </div>
-                <!-- Q5 -->
-                <div class="border-b border-white/10 pb-4 accordion-item">
-                    <button class="w-full flex justify-between items-center py-4 text-left font-bold text-lg text-white hover:text-neon transition-colors" onclick="toggleAccordion(this)">
-                        Do you sign NDAs?
-                        <i class="fa-solid fa-plus text-neon accordion-icon"></i>
-                    </button>
-                    <div class="accordion-content">
-                        <p class="text-gray-400 pb-4">Yes, we respect your intellectual property and are happy to sign an NDA before discussions begin.</p>
                     </div>
                 </div>
             </div>
@@ -458,7 +445,6 @@
                             Book Discovery Call
                         </a>
                     </div>
-                    <p class="text-gray-500 mt-8">hello@productjoy.co</p>
                 </div>
             </div>
         </section>
@@ -480,7 +466,6 @@
                         <li><a href="#work" class="hover:text-neon transition-colors">Work</a></li>
                         <li><a href="#services" class="hover:text-neon transition-colors">Services</a></li>
                         <li><a href="#process" class="hover:text-neon transition-colors">Process</a></li>
-                        <li><a href="#faq" class="hover:text-neon transition-colors">FAQ</a></li>
                     </ul>
                 </div>
                 <div>
@@ -490,7 +475,6 @@
                         <li class="flex gap-6 mt-6 text-white text-lg">
                             <i class="fa-brands fa-twitter hover:text-neon cursor-pointer transition-colors"></i>
                             <i class="fa-brands fa-linkedin hover:text-neon cursor-pointer transition-colors"></i>
-                            <i class="fa-brands fa-instagram hover:text-neon cursor-pointer transition-colors"></i>
                         </li>
                     </ul>
                 </div>
@@ -538,46 +522,21 @@
         // 1. Accordion Logic
         function toggleAccordion(button) {
             const item = button.parentElement;
-            
-            // Close other items
             document.querySelectorAll('.accordion-item').forEach(otherItem => {
-                if (otherItem !== item) {
-                    otherItem.classList.remove('accordion-open');
-                }
+                if (otherItem !== item) otherItem.classList.remove('accordion-open');
             });
-
-            // Toggle current
             item.classList.toggle('accordion-open');
         }
 
         // 2. Hero Text Typing Animation
         const typeTexts = document.querySelectorAll('.type-text');
         const originalContent = Array.from(typeTexts).map(el => el.textContent);
-        
-        // Clear content initially
         typeTexts.forEach(el => el.textContent = '');
-
         const tl = gsap.timeline({ delay: 0.5 });
-
-        // Type each line sequentially
         typeTexts.forEach((el, index) => {
-            tl.to(el, {
-                text: {
-                    value: originalContent[index],
-                    delimiter: ""
-                },
-                duration: 0.8,
-                ease: "none"
-            });
+            tl.to(el, { text: { value: originalContent[index], delimiter: "" }, duration: 0.8, ease: "none" });
         });
-        
-        // Fade in subhead elements after typing finishes
-        tl.to('.fade-in-up', {
-            opacity: 1,
-            y: 0,
-            duration: 1,
-            ease: "power2.out"
-        }, "-=0.2");
+        tl.to('.fade-in-up', { opacity: 1, y: 0, duration: 1, ease: "power2.out" }, "-=0.2");
 
         // 3. Section Headers Fade Up
         document.querySelectorAll('.section-header').forEach(header => {
@@ -585,45 +544,50 @@
                 y: 50,
                 opacity: 0,
                 duration: 1,
-                scrollTrigger: {
-                    trigger: header,
-                    start: "top 80%",
-                }
+                scrollTrigger: { trigger: header, start: "top 80%" }
             });
         });
 
-        // 4. Case Study Cards (Fade Up + Image Parallax)
-        const caseCards = document.querySelectorAll('.case-card');
-        caseCards.forEach((card, index) => {
-            gsap.to(card, {
-                opacity: 1,
-                y: 0,
-                duration: 1,
-                ease: "power3.out",
-                scrollTrigger: {
-                    trigger: card,
-                    start: "top 85%"
-                }
-            });
+        // 4. Horizontal Scroll for Work Section with Parallax (FIXED)
+        const workSection = document.querySelector("#work");
+        const workTrack = document.querySelector("#work-track");
 
-            const imgWrapper = card.querySelector('.parallax-img-wrapper');
-            const img = card.querySelector('img');
-            
-            if (img) {
-                gsap.fromTo(img, 
-                    { yPercent: -15, scale: 1.1 },
-                    { 
-                        yPercent: 15, 
-                        scale: 1.1,
-                        ease: "none",
-                        scrollTrigger: {
-                            trigger: card,
-                            start: "top bottom",
-                            end: "bottom top",
-                            scrub: true
-                        }
+        ScrollTrigger.matchMedia({
+            // Desktop only
+            "(min-width: 768px)": function() {
+                
+                // Calculate scroll distance dynamically
+                function getScrollDist() {
+                    return -(workTrack.scrollWidth - window.innerWidth);
+                }
+
+                // Create a single synchronized timeline
+                let tl = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: workSection,
+                        start: "top top",
+                        // The scroll distance determines the duration of the pin
+                        end: () => "+=" + (workTrack.scrollWidth - window.innerWidth), 
+                        pin: true,
+                        scrub: 1,
+                        invalidateOnRefresh: true // Recalculate on resize
                     }
-                );
+                });
+
+                // Animation 1: Move track left
+                tl.to(workTrack, {
+                    x: getScrollDist,
+                    ease: "none"
+                }, 0);
+
+                // Animation 2: Move images right (Parallax) inside the track
+                // Using the same timeline ensures perfect sync
+                document.querySelectorAll('.work-img-container img').forEach((img) => {
+                    tl.to(img, {
+                        xPercent: 15, // Move image 15% to the right as container moves left
+                        ease: "none"
+                    }, 0); // Start at time 0 (concurrently)
+                });
             }
         });
 
@@ -634,10 +598,7 @@
             duration: 0.8,
             stagger: 0.1,
             ease: "power2.out",
-            scrollTrigger: {
-                trigger: "#services",
-                start: "top 70%"
-            }
+            scrollTrigger: { trigger: "#services", start: "top 70%" }
         });
 
         // 6. Process Steps Stagger
@@ -647,48 +608,17 @@
             duration: 0.8,
             stagger: 0.2,
             ease: "power2.out",
-            scrollTrigger: {
-                trigger: "#process",
-                start: "top 70%"
-            }
+            scrollTrigger: { trigger: "#process", start: "top 70%" }
         });
 
-        // 7. Magnetic Button Effect
-        const magnets = document.querySelectorAll('.magnetic-btn');
-        magnets.forEach((magnet) => {
-            magnet.addEventListener('mousemove', (e) => {
-                const rect = magnet.getBoundingClientRect();
-                const x = e.clientX - rect.left - rect.width / 2;
-                const y = e.clientY - rect.top - rect.height / 2;
-                
-                gsap.to(magnet, {
-                    x: x * 0.3,
-                    y: y * 0.3,
-                    duration: 0.3,
-                    ease: "power2.out"
-                });
-            });
-
-            magnet.addEventListener('mouseleave', () => {
-                gsap.to(magnet, {
-                    x: 0,
-                    y: 0,
-                    duration: 0.5,
-                    ease: "elastic.out(1, 0.3)"
-                });
-            });
-        });
-
-        // 8. Navbar Scroll Effect (Fix overlapping content)
+        // 7. Navbar Scroll Effect
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
-                // Scrolled State: Dark background, blur, borders, slightly smaller
                 navbar.classList.add('bg-dark/90', 'backdrop-blur-md', 'border-b', 'border-white/5', 'shadow-lg');
                 navbar.classList.remove('mix-blend-difference', 'h-[120px]');
                 navbar.classList.add('h-[90px]');
             } else {
-                // Top State: Transparent, larger, blend mode
                 navbar.classList.remove('bg-dark/90', 'backdrop-blur-md', 'border-b', 'border-white/5', 'shadow-lg', 'h-[90px]');
                 navbar.classList.add('mix-blend-difference', 'h-[120px]');
             }
