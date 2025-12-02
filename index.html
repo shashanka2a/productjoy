@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProductJoy | Ship Real Products, Insanely Fast</title>
+    
+    <!-- Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: '#0C0C0C',
+                        darker: '#050505',
+                        panel: '#111111',
+                        neon: '#00D66B',
+                        neonHover: '#00b359',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'soft-gradient': 'linear-gradient(180deg, #1B1B1B 0%, #0C0C0C 100%)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Lenis Smooth Scroll CSS -->
+    <style>
+        html.lenis { height: auto; }
+        .lenis.lenis-smooth { scroll-behavior: auto !important; }
+        .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+        .lenis.lenis-stopped { overflow: hidden; }
+        .lenis.lenis-scrolling iframe { pointer-events: none; }
+    </style>
+
+    <!-- Custom CSS -->
+    <style>
+        body {
+            background-color: #000;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            color: #ffffff;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0C0C0C; }
+        ::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #00D66B; }
+
+        .magnetic-btn { transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+        .glow-hover:hover { box-shadow: 0 0 30px rgba(0, 214, 107, 0.15); border-color: rgba(0, 214, 107, 0.4); }
+        
+        /* Typography Utilities */
+        .tight-lead { line-height: 0.9; }
+        .tight-track { letter-spacing: -0.04em; }
+
+        /* Accordion */
+        .accordion-content {
+            transition: max-height 0.4s ease-out, opacity 0.4s ease;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+        }
+        .accordion-open .accordion-content {
+            max-height: 300px;
+            opacity: 1;
+        }
+        .accordion-icon { transition: transform 0.3s ease; }
+        .accordion-open .accordion-icon { transform: rotate(45deg); }
+        
+        /* Cursor Blink for Typing (Optional aesthetic) */
+        .cursor-blink::after {
+            content: '|';
+            animation: blink 1s infinite;
+            color: #00D66B;
+            margin-left: 5px;
+        }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+    </style>
+</head>
+<body class="flex justify-center items-start min-h-screen py-0 lg:py-8 bg-black">
+
+    <!-- Main "Frame" Container -->
+    <div id="main-frame" class="w-full max-w-[1920px] bg-dark lg:rounded-[32px] overflow-hidden relative shadow-2xl ring-1 ring-white/5">
+        
+        <!-- Navbar -->
+        <nav class="fixed top-0 left-0 right-0 z-50 w-full max-w-[1920px] mx-auto px-8 md:px-16 lg:px-24 h-[110px] flex items-center justify-between mix-blend-difference text-white transition-all duration-300" id="navbar">
+            <a href="#" class="text-2xl font-extrabold tracking-tighter hover:opacity-80 transition-opacity flex items-center gap-1">
+                PRODUCT<span class="text-neon">JOY</span>
+            </a>
+
+            <!-- Added px-3 py-2 to each link for better spacing and hit targets -->
+            <div class="hidden md:flex items-center gap-4 lg:gap-8 text-[13px] font-semibold tracking-[0.15em] uppercase text-gray-300">
+                <a href="#services" class="px-3 py-2 hover:text-neon hover:text-white transition-colors nav-link">Services</a>
+                <a href="#plans" class="px-3 py-2 hover:text-neon hover:text-white transition-colors nav-link">Plans</a>
+                <a href="#process" class="px-3 py-2 hover:text-neon hover:text-white transition-colors nav-link">Process</a>
+                <a href="#work" class="px-3 py-2 hover:text-neon hover:text-white transition-colors nav-link">Work</a>
+                <a href="#faq" class="px-3 py-2 hover:text-neon hover:text-white transition-colors nav-link">FAQ</a>
+            </div>
+
+            <div class="flex items-center gap-8 lg:gap-12">
+                <a href="#contact" class="hidden md:block text-[13px] font-bold uppercase tracking-widest hover:underline decoration-neon underline-offset-8 px-3 py-2">Get Started</a>
+                <button class="w-14 h-14 bg-neon rounded-full flex items-center justify-center text-dark hover:scale-110 transition-transform magnetic-btn group shadow-[0_0_20px_rgba(0,214,107,0.3)]">
+                    <i class="fa-solid fa-arrow-right text-lg -rotate-45 group-hover:rotate-0 transition-transform duration-300"></i>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <header class="relative w-full min-h-screen flex flex-col justify-center px-6 md:px-12 lg:px-16 pt-32 pb-20 overflow-hidden">
+            <!-- Background Elements -->
+            <div class="absolute top-0 left-0 w-full h-[80vh] bg-gradient-to-b from-neon/5 to-transparent pointer-events-none"></div>
+
+            <!-- Headline with Typing Animation -->
+            <div class="relative z-20 mt-10 w-full max-w-[90%]">
+                <h1 class="text-[clamp(3.5rem,9vw,9rem)] font-black tight-lead tight-track uppercase text-white">
+                    <div class="overflow-hidden"><span class="block type-text">Ship Real</span></div>
+                    <div class="overflow-hidden"><span class="block type-text">Products,</span></div>
+                    <div class="overflow-hidden"><span class="block type-text text-neon">Insanely Fast</span></div>
+                </h1>
+            </div>
+
+            <!-- Subhead & Stats -->
+            <div class="relative z-20 flex flex-col items-start md:items-end w-full mt-16 lg:-mt-6 pr-0 lg:pr-[10%] opacity-0 fade-in-up">
+                <div class="w-full md:w-[480px] md:text-right">
+                    <p class="text-gray-400 text-lg md:text-xl mb-10 leading-relaxed font-light">
+                        ProductJoy is your startup's all-in-one design, development, and marketing partner - crafting brands and driving growth at startup speed.
+                    </p>
+                    <div class="flex flex-col md:flex-row items-start md:items-center justify-end gap-8 mb-12">
+                        <a href="#work" class="text-white border-b border-white/30 pb-1 hover:text-neon hover:border-neon transition-colors uppercase text-xs font-bold tracking-widest">Explore Our Work</a>
+                        <button class="bg-neon text-dark px-10 py-5 rounded-full font-bold uppercase tracking-wider hover:bg-white hover:scale-105 transition-all duration-300 shadow-[0_0_30px_rgba(0,214,107,0.2)]">
+                            Book Strategy Call
+                        </button>
+                    </div>
+                    
+                    <!-- Stats -->
+                    <div class="flex justify-start md:justify-end gap-12 border-t border-white/10 pt-8">
+                        <div>
+                            <span class="block text-3xl font-black text-white">10+</span>
+                            <span class="text-xs uppercase tracking-widest text-gray-500">Projects</span>
+                        </div>
+                        <div>
+                            <span class="block text-3xl font-black text-white">5+</span>
+                            <span class="text-xs uppercase tracking-widest text-gray-500">Happy Clients</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Services Section -->
+        <section id="services" class="px-6 md:px-16 py-32 bg-dark">
+            <div class="flex items-end justify-between mb-24 section-header">
+                <div>
+                    <h2 class="text-5xl md:text-7xl font-bold uppercase tracking-tighter mb-4">Everything to <span class="text-gray-700">Launch</span></h2>
+                    <p class="text-gray-400 text-lg max-w-xl">A full-stack creative studio for founders who move fast.</p>
+                </div>
+                <div class="hidden md:block text-neon text-sm font-mono tracking-widest">[ 01 ]</div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Service 1 -->
+                <div class="h-[360px] border border-white/5 rounded-2xl p-8 flex flex-col justify-between hover:border-neon/50 transition-colors duration-500 bg-panel glow-hover service-card opacity-0 translate-y-10 group">
+                    <div class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-neon text-xl group-hover:scale-110 transition-transform duration-500">
+                        <i class="fa-solid fa-pen-nib"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold mb-3 tracking-tight text-white">Brand & UI Design</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed">Build timeless brands and delightful product interfaces that convert users into fans.</p>
+                    </div>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="h-[360px] border border-white/5 rounded-2xl p-8 flex flex-col justify-between hover:border-neon/50 transition-colors duration-500 bg-panel glow-hover service-card opacity-0 translate-y-10 group">
+                    <div class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-neon text-xl group-hover:scale-110 transition-transform duration-500">
+                        <i class="fa-solid fa-code"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold mb-3 tracking-tight text-white">Full-Stack Dev</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed">From web apps to mobile, our code is clean, scalable, and lightning-fast.</p>
+                    </div>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="h-[360px] border border-white/5 rounded-2xl p-8 flex flex-col justify-between hover:border-neon/50 transition-colors duration-500 bg-panel glow-hover service-card opacity-0 translate-y-10 group">
+                    <div class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-neon text-xl group-hover:scale-110 transition-transform duration-500">
+                        <i class="fa-solid fa-rocket"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold mb-3 tracking-tight text-white">Marketing & Growth</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed">Scale with content, ads, and community — all tailored to your audience.</p>
+                    </div>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="h-[360px] border border-white/5 rounded-2xl p-8 flex flex-col justify-between hover:border-neon/50 transition-colors duration-500 bg-panel glow-hover service-card opacity-0 translate-y-10 group">
+                    <div class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-neon text-xl group-hover:scale-110 transition-transform duration-500">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold mb-3 tracking-tight text-white">Launch & Opt</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed">Continuous iteration, analytics, and creative strategy to help you grow.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process Section -->
+        <section id="process" class="px-6 md:px-16 py-32 bg-black">
+            <div class="flex items-end justify-between mb-24 section-header">
+                <div>
+                    <h2 class="text-5xl md:text-7xl font-bold uppercase tracking-tighter mb-4">How We <span class="text-gray-700">Work</span></h2>
+                    <p class="text-gray-400 text-lg">Brief &rarr; Build &rarr; Boost</p>
+                </div>
+                <div class="hidden md:block text-neon text-sm font-mono tracking-widest">[ 02 ]</div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Step 1 -->
+                <div class="border-t border-white/10 pt-8 process-step opacity-0 translate-y-10">
+                    <span class="text-neon font-black text-6xl block mb-6">01</span>
+                    <h3 class="text-3xl font-bold text-white mb-2">Brief</h3>
+                    <div class="inline-block px-3 py-1 border border-white/20 rounded-full text-xs font-bold uppercase text-gray-400 mb-6">1 Day</div>
+                    <p class="text-gray-500 text-lg leading-relaxed">Align on goals, audience, and brand direction to kickstart your vision.</p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="border-t border-white/10 pt-8 process-step opacity-0 translate-y-10">
+                    <span class="text-neon font-black text-6xl block mb-6">02</span>
+                    <h3 class="text-3xl font-bold text-white mb-2">Build</h3>
+                    <div class="inline-block px-3 py-1 border border-white/20 rounded-full text-xs font-bold uppercase text-gray-400 mb-6">1-2 Weeks</div>
+                    <p class="text-gray-500 text-lg leading-relaxed">Design, develop, and launch your product or campaign with startup speed.</p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="border-t border-white/10 pt-8 process-step opacity-0 translate-y-10">
+                    <span class="text-neon font-black text-6xl block mb-6">03</span>
+                    <h3 class="text-3xl font-bold text-white mb-2">Boost</h3>
+                    <div class="inline-block px-3 py-1 border border-white/20 rounded-full text-xs font-bold uppercase text-gray-400 mb-6">Ongoing</div>
+                    <p class="text-gray-500 text-lg leading-relaxed">Market, optimize, and scale your impact with data-backed strategies.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Selected Work Section -->
+        <section id="work" class="px-6 md:px-16 py-32 bg-dark">
+            <div class="flex items-end justify-between mb-24 section-header">
+                <h2 class="text-5xl md:text-7xl font-bold uppercase tracking-tighter">Selected <span class="text-gray-700">Work</span></h2>
+                <div class="hidden md:block text-neon text-sm font-mono tracking-widest">[ 03 ]</div>
+            </div>
+
+            <div class="flex flex-col gap-32">
+                <!-- Case Study 1 -->
+                <div class="group relative w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center cursor-pointer case-card opacity-0 translate-y-20">
+                    <div class="lg:col-span-8 h-[400px] lg:h-[600px] overflow-hidden rounded-[2rem] relative">
+                        <div class="w-full h-[120%] -mt-[10%] parallax-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=2400&auto=format&fit=crop" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 ease-out" alt="Adverzeo">
+                        </div>
+                    </div>
+                    <div class="lg:col-span-4 flex flex-col justify-center items-start lg:pl-8">
+                        <div class="flex flex-wrap gap-3 mb-8">
+                            <span class="px-4 py-1.5 border border-white/10 rounded-full text-[11px] uppercase tracking-widest text-gray-400">Brand Identity</span>
+                            <span class="px-4 py-1.5 border border-white/10 rounded-full text-[11px] uppercase tracking-widest text-gray-400">UI/UX</span>
+                        </div>
+                        <h3 class="text-5xl font-bold mb-6 group-hover:text-neon transition-colors leading-tight">Adverzeo</h3>
+                        <p class="text-gray-400 leading-relaxed mb-8">The Art Of Loading Excellence • premium marketing platform design.</p>
+                        <div class="text-sm text-neon font-bold uppercase tracking-widest mb-2">Timeline: 2 Weeks</div>
+                    </div>
+                </div>
+
+                <!-- Case Study 2 -->
+                <div class="group relative w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center cursor-pointer case-card opacity-0 translate-y-20">
+                     <div class="lg:col-span-4 flex flex-col justify-center items-start lg:items-end lg:text-right lg:pr-8 order-2 lg:order-1">
+                        <div class="flex flex-wrap gap-3 mb-8 lg:justify-end">
+                            <span class="px-4 py-1.5 border border-white/10 rounded-full text-[11px] uppercase tracking-widest text-gray-400">Fintech</span>
+                            <span class="px-4 py-1.5 border border-white/10 rounded-full text-[11px] uppercase tracking-widest text-gray-400">Web App</span>
+                        </div>
+                        <h3 class="text-5xl font-bold mb-6 group-hover:text-neon transition-colors leading-tight">Payflow</h3>
+                        <p class="text-gray-400 leading-relaxed mb-8">Seamless global finance with zero hidden fees and instant settlements.</p>
+                        <div class="text-sm text-neon font-bold uppercase tracking-widest mb-2">Timeline: 1 Month</div>
+                    </div>
+                    <div class="lg:col-span-8 h-[400px] lg:h-[600px] overflow-hidden rounded-[2rem] relative order-1 lg:order-2">
+                         <div class="w-full h-[120%] -mt-[10%] parallax-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=2400&auto=format&fit=crop" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 ease-out" alt="Payflow">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case Study 3 -->
+                <div class="group relative w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center cursor-pointer case-card opacity-0 translate-y-20">
+                    <div class="lg:col-span-8 h-[400px] lg:h-[600px] overflow-hidden rounded-[2rem] relative">
+                         <div class="w-full h-[120%] -mt-[10%] parallax-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?q=80&w=2400&auto=format&fit=crop" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 ease-out" alt="InOrbyt">
+                        </div>
+                    </div>
+                    <div class="lg:col-span-4 flex flex-col justify-center items-start lg:pl-8">
+                        <div class="flex flex-wrap gap-3 mb-8">
+                            <span class="px-4 py-1.5 border border-white/10 rounded-full text-[11px] uppercase tracking-widest text-gray-400">Web3</span>
+                            <span class="px-4 py-1.5 border border-white/10 rounded-full text-[11px] uppercase tracking-widest text-gray-400">Platform</span>
+                        </div>
+                        <h3 class="text-5xl font-bold mb-6 group-hover:text-neon transition-colors leading-tight">InOrbyt</h3>
+                        <p class="text-gray-400 leading-relaxed mb-8">Reward your community. No crypto. No complexity. Just connection.</p>
+                        <div class="text-sm text-neon font-bold uppercase tracking-widest mb-2">Timeline: 3 Weeks</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Plans Section -->
+        <section id="plans" class="px-6 md:px-16 py-32 bg-black border-t border-white/5">
+            <div class="flex items-end justify-between mb-24 section-header">
+                <div>
+                    <h2 class="text-5xl md:text-7xl font-bold uppercase tracking-tighter mb-4">Choose Your <span class="text-gray-700">Sprint</span></h2>
+                    <p class="text-gray-400 text-lg">Built for founders at every stage.</p>
+                </div>
+                <div class="hidden md:block text-neon text-sm font-mono tracking-widest">[ 04 ]</div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Design Sprint -->
+                <div class="p-8 border border-white/10 rounded-2xl bg-panel hover:border-neon/30 transition-all">
+                    <h3 class="text-2xl font-bold text-white mb-2">Design Sprint</h3>
+                    <p class="text-gray-500 text-sm mb-6">Visual identity, landing page, and UI system</p>
+                    <div class="text-4xl font-bold text-white mb-8">$3,500</div>
+                    <ul class="space-y-4 mb-10 text-gray-400 text-sm">
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-neon"></i> Visual identity</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-neon"></i> Landing page</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-neon"></i> UI system</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-neon"></i> Brand guidelines</li>
+                    </ul>
+                    <a href="#" class="block w-full py-4 rounded-xl border border-white/20 text-center font-bold text-white hover:bg-white hover:text-black transition-colors">Get Started</a>
+                </div>
+
+                <!-- Launch Sprint -->
+                <div class="p-8 border border-neon rounded-2xl bg-dark relative transform md:-translate-y-4 shadow-[0_0_30px_rgba(0,214,107,0.1)]">
+                    <div class="absolute top-0 right-0 bg-neon text-black text-xs font-bold px-4 py-1.5 rounded-bl-xl uppercase">Most Popular</div>
+                    <h3 class="text-2xl font-bold text-white mb-2">Launch Sprint</h3>
+                    <p class="text-gray-500 text-sm mb-6">Full-stack product launch with design + dev</p>
+                    <div class="text-4xl font-bold text-neon mb-8">$12,500</div>
+                    <ul class="space-y-4 mb-10 text-white text-sm">
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-neon"></i> Full-stack product launch</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-neon"></i> Design + dev + marketing</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-neon"></i> UI/UX design</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-neon"></i> Backend development</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-neon"></i> 7-day delivery</li>
+                    </ul>
+                    <a href="#" class="block w-full py-4 rounded-xl bg-neon text-center font-bold text-black hover:bg-white transition-colors">Get Started</a>
+                </div>
+
+                <!-- Scale Sprint -->
+                <div class="p-8 border border-white/10 rounded-2xl bg-panel hover:border-neon/30 transition-all">
+                    <h3 class="text-2xl font-bold text-white mb-2">Scale Sprint</h3>
+                    <p class="text-gray-500 text-sm mb-6">Advanced features & growth campaigns</p>
+                    <div class="text-4xl font-bold text-white mb-8">$35,000</div>
+                    <ul class="space-y-4 mb-10 text-gray-400 text-sm">
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-neon"></i> Advanced features</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-neon"></i> Growth campaigns</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-neon"></i> Post-launch support</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-neon"></i> Custom integrations</li>
+                    </ul>
+                    <a href="#" class="block w-full py-4 rounded-xl border border-white/20 text-center font-bold text-white hover:bg-white hover:text-black transition-colors">Get Started</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="px-6 md:px-16 py-32 bg-darker">
+            <h2 class="text-4xl md:text-5xl font-bold uppercase tracking-tighter mb-16 text-center">FAQ</h2>
+            <div class="max-w-3xl mx-auto space-y-4">
+                <!-- Q1 -->
+                <div class="border-b border-white/10 pb-4 accordion-item">
+                    <button class="w-full flex justify-between items-center py-4 text-left font-bold text-lg text-white hover:text-neon transition-colors" onclick="toggleAccordion(this)">
+                        What services does ProductJoy offer?
+                        <i class="fa-solid fa-plus text-neon accordion-icon"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p class="text-gray-400 pb-4">We offer end-to-end product services including Branding, UI/UX Design, Full-Stack Development (Web & Mobile), and Growth Marketing strategies.</p>
+                    </div>
+                </div>
+                <!-- Q2 -->
+                <div class="border-b border-white/10 pb-4 accordion-item">
+                    <button class="w-full flex justify-between items-center py-4 text-left font-bold text-lg text-white hover:text-neon transition-colors" onclick="toggleAccordion(this)">
+                        What if I need revisions?
+                        <i class="fa-solid fa-plus text-neon accordion-icon"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p class="text-gray-400 pb-4">We work in iterative sprints. Each sprint includes rounds of feedback to ensure the final output matches your vision perfectly.</p>
+                    </div>
+                </div>
+                <!-- Q3 -->
+                <div class="border-b border-white/10 pb-4 accordion-item">
+                    <button class="w-full flex justify-between items-center py-4 text-left font-bold text-lg text-white hover:text-neon transition-colors" onclick="toggleAccordion(this)">
+                        Do you provide ongoing support?
+                        <i class="fa-solid fa-plus text-neon accordion-icon"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p class="text-gray-400 pb-4">Yes! Our "Boost" phase is dedicated to ongoing maintenance, optimization, and scaling support after the initial launch.</p>
+                    </div>
+                </div>
+                <!-- Q4 -->
+                <div class="border-b border-white/10 pb-4 accordion-item">
+                    <button class="w-full flex justify-between items-center py-4 text-left font-bold text-lg text-white hover:text-neon transition-colors" onclick="toggleAccordion(this)">
+                        What technologies do you use?
+                        <i class="fa-solid fa-plus text-neon accordion-icon"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p class="text-gray-400 pb-4">We use modern stacks like React, Next.js, Node.js, Tailwind CSS for web, and React Native for mobile. Design is done in Figma.</p>
+                    </div>
+                </div>
+                <!-- Q5 -->
+                <div class="border-b border-white/10 pb-4 accordion-item">
+                    <button class="w-full flex justify-between items-center py-4 text-left font-bold text-lg text-white hover:text-neon transition-colors" onclick="toggleAccordion(this)">
+                        Do you sign NDAs?
+                        <i class="fa-solid fa-plus text-neon accordion-icon"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p class="text-gray-400 pb-4">Yes, we respect your intellectual property and are happy to sign an NDA before discussions begin.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Banner -->
+        <section id="contact" class="px-6 md:px-16 py-20">
+            <div class="w-full rounded-[2.5rem] bg-gradient-to-r from-neon/50 to-dark p-[1px]">
+                <div class="bg-dark rounded-[2.4rem] p-12 md:p-32 text-center overflow-hidden relative">
+                    <div class="absolute inset-0 bg-gradient-to-t from-neon/10 via-transparent to-transparent"></div>
+                    <div class="absolute top-0 left-1/2 transform -translate-x-1/2 w-full h-[500px] bg-neon/5 blur-[120px] rounded-full pointer-events-none"></div>
+                    
+                    <h2 class="relative z-10 text-5xl md:text-8xl font-black uppercase mb-12 tracking-tighter text-white">Ready to launch<br>your next big idea?</h2>
+                    <div class="flex flex-col md:flex-row justify-center gap-6 relative z-10">
+                         <a href="#" class="inline-block bg-neon text-dark px-12 py-5 rounded-full font-bold uppercase tracking-widest text-sm hover:bg-white hover:scale-105 transition-all duration-300 shadow-[0_0_40px_rgba(0,214,107,0.3)]">
+                            Start Your Project
+                        </a>
+                        <a href="#" class="inline-block border border-white/20 text-white px-12 py-5 rounded-full font-bold uppercase tracking-widest text-sm hover:bg-white hover:text-dark transition-all duration-300">
+                            Book Discovery Call
+                        </a>
+                    </div>
+                    <p class="text-gray-500 mt-8">hello@productjoy.co</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="px-6 md:px-16 py-16 bg-black border-t border-white/5">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-20">
+                <div class="col-span-1 md:col-span-2">
+                    <a href="#" class="text-3xl font-extrabold tracking-tighter block mb-6 text-white">
+                        PRODUCT<span class="text-neon">JOY</span>
+                    </a>
+                    <p class="text-gray-500 max-w-sm leading-relaxed">
+                        Ship real products, insanely fast.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold uppercase tracking-widest mb-8 text-xs text-gray-400">Sitemap</h4>
+                    <ul class="space-y-4 text-gray-300 text-sm font-medium">
+                        <li><a href="#work" class="hover:text-neon transition-colors">Work</a></li>
+                        <li><a href="#services" class="hover:text-neon transition-colors">Services</a></li>
+                        <li><a href="#process" class="hover:text-neon transition-colors">Process</a></li>
+                        <li><a href="#faq" class="hover:text-neon transition-colors">FAQ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold uppercase tracking-widest mb-8 text-xs text-gray-400">Connect</h4>
+                    <ul class="space-y-4 text-gray-300 text-sm font-medium">
+                        <li>hello@productjoy.co</li>
+                        <li class="flex gap-6 mt-6 text-white text-lg">
+                            <i class="fa-brands fa-twitter hover:text-neon cursor-pointer transition-colors"></i>
+                            <i class="fa-brands fa-linkedin hover:text-neon cursor-pointer transition-colors"></i>
+                            <i class="fa-brands fa-instagram hover:text-neon cursor-pointer transition-colors"></i>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-white/5 text-gray-600 text-xs uppercase tracking-wider">
+                <p>&copy; 2025 ProductJoy Agency. All rights reserved.</p>
+                <div class="flex gap-8 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- GSAP Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
+    <!-- Lenis Script -->
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+    
+    <script>
+        // 0. Initialize Lenis (Smooth Scroll)
+        const lenis = new Lenis({
+            duration: 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            direction: 'vertical',
+            gestureDirection: 'vertical',
+            smooth: true,
+            mouseMultiplier: 1,
+            smoothTouch: false,
+            touchMultiplier: 2,
+        });
+
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+
+        // Connect Lenis to ScrollTrigger
+        gsap.registerPlugin(ScrollTrigger, TextPlugin);
+        
+        // 1. Accordion Logic
+        function toggleAccordion(button) {
+            const item = button.parentElement;
+            
+            // Close other items
+            document.querySelectorAll('.accordion-item').forEach(otherItem => {
+                if (otherItem !== item) {
+                    otherItem.classList.remove('accordion-open');
+                }
+            });
+
+            // Toggle current
+            item.classList.toggle('accordion-open');
+        }
+
+        // 2. Hero Text Typing Animation
+        const typeTexts = document.querySelectorAll('.type-text');
+        const originalContent = Array.from(typeTexts).map(el => el.textContent);
+        
+        // Clear content initially
+        typeTexts.forEach(el => el.textContent = '');
+
+        const tl = gsap.timeline({ delay: 0.5 });
+
+        // Type each line sequentially
+        typeTexts.forEach((el, index) => {
+            tl.to(el, {
+                text: {
+                    value: originalContent[index],
+                    delimiter: ""
+                },
+                duration: 0.8,
+                ease: "none"
+            });
+        });
+        
+        // Fade in subhead elements after typing finishes
+        tl.to('.fade-in-up', {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            ease: "power2.out"
+        }, "-=0.2");
+
+        // 3. Section Headers Fade Up
+        document.querySelectorAll('.section-header').forEach(header => {
+            gsap.from(header, {
+                y: 50,
+                opacity: 0,
+                duration: 1,
+                scrollTrigger: {
+                    trigger: header,
+                    start: "top 80%",
+                }
+            });
+        });
+
+        // 4. Case Study Cards (Fade Up + Image Parallax)
+        const caseCards = document.querySelectorAll('.case-card');
+        caseCards.forEach((card, index) => {
+            gsap.to(card, {
+                opacity: 1,
+                y: 0,
+                duration: 1,
+                ease: "power3.out",
+                scrollTrigger: {
+                    trigger: card,
+                    start: "top 85%"
+                }
+            });
+
+            const imgWrapper = card.querySelector('.parallax-img-wrapper');
+            const img = card.querySelector('img');
+            
+            if (img) {
+                gsap.fromTo(img, 
+                    { yPercent: -15, scale: 1.1 },
+                    { 
+                        yPercent: 15, 
+                        scale: 1.1,
+                        ease: "none",
+                        scrollTrigger: {
+                            trigger: card,
+                            start: "top bottom",
+                            end: "bottom top",
+                            scrub: true
+                        }
+                    }
+                );
+            }
+        });
+
+        // 5. Service Cards Stagger
+        gsap.to('.service-card', {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            stagger: 0.1,
+            ease: "power2.out",
+            scrollTrigger: {
+                trigger: "#services",
+                start: "top 70%"
+            }
+        });
+
+        // 6. Process Steps Stagger
+         gsap.to(".process-step", {
+            y: 0,
+            opacity: 1,
+            duration: 0.8,
+            stagger: 0.2,
+            ease: "power2.out",
+            scrollTrigger: {
+                trigger: "#process",
+                start: "top 70%"
+            }
+        });
+
+        // 7. Magnetic Button Effect
+        const magnets = document.querySelectorAll('.magnetic-btn');
+        magnets.forEach((magnet) => {
+            magnet.addEventListener('mousemove', (e) => {
+                const rect = magnet.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                
+                gsap.to(magnet, {
+                    x: x * 0.3,
+                    y: y * 0.3,
+                    duration: 0.3,
+                    ease: "power2.out"
+                });
+            });
+
+            magnet.addEventListener('mouseleave', () => {
+                gsap.to(magnet, {
+                    x: 0,
+                    y: 0,
+                    duration: 0.5,
+                    ease: "elastic.out(1, 0.3)"
+                });
+            });
+        });
+
+        // 8. Navbar Scroll Effect (Fix overlapping content)
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                // Scrolled State: Dark background, blur, borders, slightly smaller
+                navbar.classList.add('bg-dark/90', 'backdrop-blur-md', 'border-b', 'border-white/5', 'shadow-lg');
+                navbar.classList.remove('mix-blend-difference', 'h-[110px]');
+                navbar.classList.add('h-[90px]');
+            } else {
+                // Top State: Transparent, larger, blend mode
+                navbar.classList.remove('bg-dark/90', 'backdrop-blur-md', 'border-b', 'border-white/5', 'shadow-lg', 'h-[90px]');
+                navbar.classList.add('mix-blend-difference', 'h-[110px]');
+            }
+        });
+
+    </script>
+</body>
+</html>
