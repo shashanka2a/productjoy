@@ -98,22 +98,22 @@
     <div id="main-frame" class="w-full max-w-[1920px] bg-dark lg:rounded-[32px] overflow-hidden relative shadow-2xl ring-1 ring-white/5">
         
         <!-- Navbar -->
-        <nav class="fixed top-0 left-0 right-0 z-50 w-full max-w-[1920px] mx-auto px-8 md:px-16 lg:px-24 h-[110px] flex items-center justify-between mix-blend-difference text-white transition-all duration-300" id="navbar">
+        <nav class="fixed top-0 left-0 right-0 z-50 w-full max-w-[1920px] mx-auto px-10 md:px-20 lg:px-32 h-[120px] flex items-center justify-between mix-blend-difference text-white transition-all duration-300" id="navbar">
             <a href="#" class="text-2xl font-extrabold tracking-tighter hover:opacity-80 transition-opacity flex items-center gap-1">
                 PRODUCT<span class="text-neon">JOY</span>
             </a>
 
-            <!-- Added px-3 py-2 to each link for better spacing and hit targets -->
-            <div class="hidden md:flex items-center gap-4 lg:gap-8 text-[13px] font-semibold tracking-[0.15em] uppercase text-gray-300">
-                <a href="#services" class="px-3 py-2 hover:text-neon hover:text-white transition-colors nav-link">Services</a>
-                <a href="#plans" class="px-3 py-2 hover:text-neon hover:text-white transition-colors nav-link">Plans</a>
-                <a href="#process" class="px-3 py-2 hover:text-neon hover:text-white transition-colors nav-link">Process</a>
-                <a href="#work" class="px-3 py-2 hover:text-neon hover:text-white transition-colors nav-link">Work</a>
-                <a href="#faq" class="px-3 py-2 hover:text-neon hover:text-white transition-colors nav-link">FAQ</a>
+            <!-- Significantly increased gaps and padding -->
+            <div class="hidden md:flex items-center gap-8 lg:gap-16 text-[13px] font-semibold tracking-[0.15em] uppercase text-gray-300">
+                <a href="#services" class="px-4 py-2 hover:text-neon hover:text-white transition-colors nav-link">Services</a>
+                <a href="#plans" class="px-4 py-2 hover:text-neon hover:text-white transition-colors nav-link">Plans</a>
+                <a href="#process" class="px-4 py-2 hover:text-neon hover:text-white transition-colors nav-link">Process</a>
+                <a href="#work" class="px-4 py-2 hover:text-neon hover:text-white transition-colors nav-link">Work</a>
+                <a href="#faq" class="px-4 py-2 hover:text-neon hover:text-white transition-colors nav-link">FAQ</a>
             </div>
 
-            <div class="flex items-center gap-8 lg:gap-12">
-                <a href="#contact" class="hidden md:block text-[13px] font-bold uppercase tracking-widest hover:underline decoration-neon underline-offset-8 px-3 py-2">Get Started</a>
+            <div class="flex items-center gap-10 lg:gap-16">
+                <a href="#contact" class="hidden md:block text-[13px] font-bold uppercase tracking-widest hover:underline decoration-neon underline-offset-8 px-4 py-2">Get Started</a>
                 <button class="w-14 h-14 bg-neon rounded-full flex items-center justify-center text-dark hover:scale-110 transition-transform magnetic-btn group shadow-[0_0_20px_rgba(0,214,107,0.3)]">
                     <i class="fa-solid fa-arrow-right text-lg -rotate-45 group-hover:rotate-0 transition-transform duration-300"></i>
                 </button>
@@ -125,37 +125,45 @@
             <!-- Background Elements -->
             <div class="absolute top-0 left-0 w-full h-[80vh] bg-gradient-to-b from-neon/5 to-transparent pointer-events-none"></div>
 
-            <!-- Headline with Typing Animation -->
-            <div class="relative z-20 mt-10 w-full max-w-[90%]">
-                <h1 class="text-[clamp(3.5rem,9vw,9rem)] font-black tight-lead tight-track uppercase text-white">
-                    <div class="overflow-hidden"><span class="block type-text">Ship Real</span></div>
-                    <div class="overflow-hidden"><span class="block type-text">Products,</span></div>
-                    <div class="overflow-hidden"><span class="block type-text text-neon">Insanely Fast</span></div>
-                </h1>
-            </div>
+            <!-- Grid Container for Structural Alignment -->
+            <div class="relative z-20 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
+                
+                <!-- Headline (Spans 8 cols) -->
+                <div class="lg:col-span-8">
+                    <h1 class="text-[clamp(4rem,11vw,10.5rem)] font-black leading-[0.85] tracking-tighter uppercase text-white">
+                        <div class="overflow-hidden"><span class="block type-text">Ship Real</span></div>
+                        <div class="overflow-hidden"><span class="block type-text">Products,</span></div>
+                        <!-- Added drop shadow to Neon text for better legibility/pop against dark bg -->
+                        <div class="overflow-hidden"><span class="block type-text text-neon drop-shadow-[0_0_15px_rgba(0,214,107,0.3)]">Insanely Fast</span></div>
+                    </h1>
+                </div>
 
-            <!-- Subhead & Stats -->
-            <div class="relative z-20 flex flex-col items-start md:items-end w-full mt-16 lg:-mt-6 pr-0 lg:pr-[10%] opacity-0 fade-in-up">
-                <div class="w-full md:w-[480px] md:text-right">
-                    <p class="text-gray-400 text-lg md:text-xl mb-10 leading-relaxed font-light">
-                        ProductJoy is your startup's all-in-one design, development, and marketing partner - crafting brands and driving growth at startup speed.
-                    </p>
-                    <div class="flex flex-col md:flex-row items-start md:items-center justify-end gap-8 mb-12">
-                        <a href="#work" class="text-white border-b border-white/30 pb-1 hover:text-neon hover:border-neon transition-colors uppercase text-xs font-bold tracking-widest">Explore Our Work</a>
-                        <button class="bg-neon text-dark px-10 py-5 rounded-full font-bold uppercase tracking-wider hover:bg-white hover:scale-105 transition-all duration-300 shadow-[0_0_30px_rgba(0,214,107,0.2)]">
-                            Book Strategy Call
-                        </button>
-                    </div>
-                    
-                    <!-- Stats -->
-                    <div class="flex justify-start md:justify-end gap-12 border-t border-white/10 pt-8">
-                        <div>
-                            <span class="block text-3xl font-black text-white">10+</span>
-                            <span class="text-xs uppercase tracking-widest text-gray-500">Projects</span>
+                <!-- Subhead & Stats (Spans 4 cols, aligned bottom) -->
+                <div class="lg:col-span-4 flex flex-col items-start lg:items-end opacity-0 fade-in-up pb-2">
+                    <div class="w-full max-w-[420px] lg:text-right">
+                        <p class="text-gray-300 text-lg md:text-xl mb-10 leading-relaxed font-light">
+                            ProductJoy is your startup's all-in-one design, development, and marketing partner - crafting brands and driving growth at startup speed.
+                        </p>
+                        
+                        <div class="flex flex-col sm:flex-row items-start lg:items-center justify-end gap-6 mb-12">
+                            <a href="#work" class="text-white border-b border-white/30 pb-1 hover:text-neon hover:border-neon transition-colors uppercase text-xs font-bold tracking-widest whitespace-nowrap">
+                                Explore Our Work
+                            </a>
+                            <button class="bg-neon text-dark px-8 py-4 rounded-full font-bold uppercase tracking-wider hover:bg-white hover:scale-105 transition-all duration-300 shadow-[0_0_30px_rgba(0,214,107,0.2)] whitespace-nowrap">
+                                Book Strategy Call
+                            </button>
                         </div>
-                        <div>
-                            <span class="block text-3xl font-black text-white">5+</span>
-                            <span class="text-xs uppercase tracking-widest text-gray-500">Happy Clients</span>
+                        
+                        <!-- Stats aligned to grid -->
+                        <div class="flex justify-start lg:justify-end gap-12 border-t border-white/10 pt-8">
+                            <div>
+                                <span class="block text-3xl font-black text-white">10+</span>
+                                <span class="text-[10px] uppercase tracking-[0.2em] text-gray-500 mt-1">Projects</span>
+                            </div>
+                            <div>
+                                <span class="block text-3xl font-black text-white">5+</span>
+                                <span class="text-[10px] uppercase tracking-[0.2em] text-gray-500 mt-1">Happy Clients</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -677,12 +685,12 @@
             if (window.scrollY > 50) {
                 // Scrolled State: Dark background, blur, borders, slightly smaller
                 navbar.classList.add('bg-dark/90', 'backdrop-blur-md', 'border-b', 'border-white/5', 'shadow-lg');
-                navbar.classList.remove('mix-blend-difference', 'h-[110px]');
+                navbar.classList.remove('mix-blend-difference', 'h-[120px]');
                 navbar.classList.add('h-[90px]');
             } else {
                 // Top State: Transparent, larger, blend mode
                 navbar.classList.remove('bg-dark/90', 'backdrop-blur-md', 'border-b', 'border-white/5', 'shadow-lg', 'h-[90px]');
-                navbar.classList.add('mix-blend-difference', 'h-[110px]');
+                navbar.classList.add('mix-blend-difference', 'h-[120px]');
             }
         });
 
